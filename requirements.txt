@@ -1,0 +1,8 @@
+{
+  "name": "vulnerable-node-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "lodash": "4.17.4",  // Vulnerable version of Lodash (CVE-2018-3721)
+    "express": "4.0.0"  // Older version of Express with vulnerabilities
+  }
+}
