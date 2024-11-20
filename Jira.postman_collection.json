@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "6ab60ff6-b479-4680-8cf0-40055f60557e",
+		"name": "Jira",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35058057",
+		"_collection_link": "https://vulcan-cyber.postman.co/workspace/Connectors~0ab3cab9-d31e-442c-8c49-52314465a321/collection/32802931-6ab60ff6-b479-4680-8cf0-40055f60557e?action=share&source=collection_link&creator=35058057"
+	},
+	"item": [
+		{
+			"name": "Server Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/serverInfo",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"serverInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Issue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fields\": {\n        \"project\": {\n            \"id\": \"10008\"\n        },\n        \"summary\": \"Mor's and Eyal test title111211\",\n        \"description\": \"Mor's and Eyal test description111211\",\n        \"issuetype\": {\n            \"id\": \"10008\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/issue",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create attachement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Atlassian-Token",
+						"value": "no-check",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/Eyal Roman/Downloads/work/lifecycle.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/issue/{{issue_key}}/attachments",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{issue_key}}",
+						"attachments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/myself",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"myself"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issue Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/issue/createmeta/AAAA/issuetypes",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"createmeta",
+						"AAAA",
+						"issuetypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Projects Old",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/project",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"project"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "description,projectKeys,issueTypes,url",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Projects New",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/project/search?expand=description,projectKeys,issueTypes,url",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"project",
+						"search"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "description,projectKeys,issueTypes,url"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_base}}/rest/api/2/project/14915",
+					"host": [
+						"{{api_base}}"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"project",
+						"14915"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "14014",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_base}}/rest/api/2/project/14014",
+							"host": [
+								"{{api_base}}"
+							],
+							"path": [
+								"rest",
+								"api",
+								"2",
+								"project",
+								"14014"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 04 Apr 2024 10:03:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "AWSALB=G3fhmqpX7QkdTxZTtFyy/2DND/NMLXbmbcRJ9IrFV54F8F2Ku3kYsBsGLmMKBlpv5p0nBq7WcG4eiUnWJNJBUvrDoVxky93mbdrX2gkbTMFqaBtbeDwOzZu20Rpg; Expires=Thu, 11 Apr 2024 10:03:00 GMT; Path=/"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "AWSALBCORS=G3fhmqpX7QkdTxZTtFyy/2DND/NMLXbmbcRJ9IrFV54F8F2Ku3kYsBsGLmMKBlpv5p0nBq7WcG4eiUnWJNJBUvrDoVxky93mbdrX2gkbTMFqaBtbeDwOzZu20Rpg; Expires=Thu, 11 Apr 2024 10:03:00 GMT; Path=/; SameSite=None; Secure"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=5D4B4E9C786D721B4D97D1FFAF1F9DCC.ip-10-132-128-86.us-west-2.compute.internal; Path=/; Secure; HttpOnly"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "atlassian.xsrf.token=BJEW-YKMO-DNGO-IN0W_ad19b6ace1c5908d5f5df4c34734e47b36837bf7_lin; Path=/; Secure; SameSite=None"
+						},
+						{
+							"key": "X-AREQUESTID",
+							"value": "603x4134082x2"
+						},
+						{
+							"key": "X-ANODEID",
+							"value": "i-0ff3200ac05680f0c"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "sandbox"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-Seraph-LoginReason",
+							"value": "OK"
+						},
+						{
+							"key": "X-ASESSIONID",
+							"value": "1fwdctw"
+						},
+						{
+							"key": "X-AUSERNAME",
+							"value": "kenna-integration"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, no-transform"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "User-Agent"
+						},
+						{
+							"key": "X-CDN",
+							"value": "Imperva"
+						},
+						{
+							"key": "Content-Security-Policy-Report-Only",
+							"value": "default-src 'self' 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline' data: blob: *.gstatic.com qas.qtestnet.com myficoqa.testrail.io www.gravatar.com confluence.fico.com qtest.fico.com:9443 jira.fico.com ; form-action 'none' ; frame-ancestors 'self' ; report-uri /csp_report"
+						},
+						{
+							"key": "X-Iinfo",
+							"value": "0-6166003-6231300 NNNN CT(193 193 0) RT(1712224126396 853642) q(0 0 4 -1) r(6 6) U16"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"expand\": \"description,lead,url,projectKeys\",\n    \"self\": \"https://jira.fico.com/rest/api/2/project/14014\",\n    \"id\": \"14014\",\n    \"key\": \"CSPS\",\n    \"description\": \"\",\n    \"lead\": {\n        \"self\": \"https://jira.fico.com/rest/api/2/user?username=SureshPendli\",\n        \"key\": \"sureshpendli\",\n        \"name\": \"SureshPendli\",\n        \"avatarUrls\": {\n            \"48x48\": \"https://jira.fico.com/secure/useravatar?ownerId=sureshpendli&avatarId=17118\",\n            \"24x24\": \"https://jira.fico.com/secure/useravatar?size=small&ownerId=sureshpendli&avatarId=17118\",\n            \"16x16\": \"https://jira.fico.com/secure/useravatar?size=xsmall&ownerId=sureshpendli&avatarId=17118\",\n            \"32x32\": \"https://jira.fico.com/secure/useravatar?size=medium&ownerId=sureshpendli&avatarId=17118\"\n        },\n        \"displayName\": \"Suresh Reddy\",\n        \"active\": true\n    },\n    \"components\": [\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15001\",\n            \"id\": \"15001\",\n            \"name\": \"Aqua Security\",\n            \"description\": \"Container security scanning and monitoring\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/18411\",\n            \"id\": \"18411\",\n            \"name\": \"Architecture Review\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/18510\",\n            \"id\": \"18510\",\n            \"name\": \"Architecture Team\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15270\",\n            \"id\": \"15270\",\n            \"name\": \"Attack Surface Detector\",\n            \"description\": \"This tool figures out the endpoints of a web application, the parameters these endpoints accept, and the data type of those parameters\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15236\",\n            \"id\": \"15236\",\n            \"name\": \"AWS Workspaces\",\n            \"description\": \"Penetration Tests Instances\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21111\",\n            \"id\": \"21111\",\n            \"name\": \"BatchUI\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15204\",\n            \"id\": \"15204\",\n            \"name\": \"BlackDuck\",\n            \"description\": \"FOSS\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21301\",\n            \"id\": \"21301\",\n            \"name\": \"BTC\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21018\",\n            \"id\": \"21018\",\n            \"name\": \"BTM\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15137\",\n            \"id\": \"15137\",\n            \"name\": \"Burp Suite Enterprise\",\n            \"description\": \"Penetration Test Web Proxy & Scanner\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21305\",\n            \"id\": \"21305\",\n            \"name\": \"CCS\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15138\",\n            \"id\": \"15138\",\n            \"name\": \"Checkmarx\",\n            \"description\": \"Static Code Scanner\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15002\",\n            \"id\": \"15002\",\n            \"name\": \"Cloud Custodian\",\n            \"description\": \"Cloud compliance scanning and alerting\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15271\",\n            \"id\": \"15271\",\n            \"name\": \"code-pulse\",\n            \"description\": \"Real-time code coverage tool for testing activities\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/22226\",\n            \"id\": \"22226\",\n            \"name\": \"CodeScan\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21113\",\n            \"id\": \"21113\",\n            \"name\": \"Core\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21110\",\n            \"id\": \"21110\",\n            \"name\": \"DAM\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15262\",\n            \"id\": \"15262\",\n            \"name\": \"DEFECTDOJO\",\n            \"description\": \"Vulnerability Orchestration & Reporting\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21102\",\n            \"id\": \"21102\",\n            \"name\": \"DM\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21216\",\n            \"id\": \"21216\",\n            \"name\": \"DMP\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15188\",\n            \"id\": \"15188\",\n            \"name\": \"Documentations & Guidance\",\n            \"description\": \"Product Security Standards, Documentations and Guidance\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21104\",\n            \"id\": \"21104\",\n            \"name\": \"FAC portal\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15104\",\n            \"id\": \"15104\",\n            \"name\": \"Faraday\",\n            \"description\": \"Penetration Test Collaboration Framework \",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15189\",\n            \"id\": \"15189\",\n            \"name\": \"FCS Technical Sessions\",\n            \"description\": \"Enhance FCS Teams knowledge\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21027\",\n            \"id\": \"21027\",\n            \"name\": \"FDO\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21306\",\n            \"id\": \"21306\",\n            \"name\": \"FDO CLOUD\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21307\",\n            \"id\": \"21307\",\n            \"name\": \"ffm\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15205\",\n            \"id\": \"15205\",\n            \"name\": \"FortifyOnDemand\",\n            \"description\": \"Dynamic Scanner\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21215\",\n            \"id\": \"21215\",\n            \"name\": \"FunctionLifecycle\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21112\",\n            \"id\": \"21112\",\n            \"name\": \"FWSD\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21310\",\n            \"id\": \"21310\",\n            \"name\": \"Gridgrain\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21003\",\n            \"id\": \"21003\",\n            \"name\": \"Hotlist\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21002\",\n            \"id\": \"21002\",\n            \"name\": \"IAM\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21438\",\n            \"id\": \"21438\",\n            \"name\": \"IML\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21208\",\n            \"id\": \"21208\",\n            \"name\": \"None\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/22223\",\n            \"id\": \"22223\",\n            \"name\": \"none'\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21201\",\n            \"id\": \"21201\",\n            \"name\": \"OM APM\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21106\",\n            \"id\": \"21106\",\n            \"name\": \"Product Security\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21101\",\n            \"id\": \"21101\",\n            \"name\": \"Repository\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/22229\",\n            \"id\": \"22229\",\n            \"name\": \"Runtime Testing\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21600\",\n            \"id\": \"21600\",\n            \"name\": \"SCA\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15272\",\n            \"id\": \"15272\",\n            \"name\": \"ScoutSuite\",\n            \"description\": \"Cloud Auditing Tool\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21308\",\n            \"id\": \"21308\",\n            \"name\": \"sd\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/18353\",\n            \"id\": \"18353\",\n            \"name\": \"SDElements\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15116\",\n            \"id\": \"15116\",\n            \"name\": \"Secrets Management Solution\",\n            \"description\": \"Solution to manage FICO secrets\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/22231\",\n            \"id\": \"22231\",\n            \"name\": \"Security Approval\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/22228\",\n            \"id\": \"22228\",\n            \"name\": \"SecurityApproval\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21105\",\n            \"id\": \"21105\",\n            \"name\": \"storage\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15117\",\n            \"id\": \"15117\",\n            \"name\": \"Synthetic Data Generator\",\n            \"description\": \"Creating a repository for data generators and synthentic datasets for multiple products\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15105\",\n            \"id\": \"15105\",\n            \"name\": \"Tasks Automation (Rundeck)\",\n            \"description\": \"Runbook Automation software\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/15136\",\n            \"id\": \"15136\",\n            \"name\": \"Threat Modeling Tool\",\n            \"isAssigneeTypeValid\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/component/21300\",\n            \"id\": \"21300\",\n            \"name\": \"TREE\",\n            \"isAssigneeTypeValid\": false\n        }\n    ],\n    \"issueTypes\": [\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/11400\",\n            \"id\": \"11400\",\n            \"description\": \"Encompasses a large body of work that spans multiple epics and, sometimes, multiple teams\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10306&avatarType=issuetype\",\n            \"name\": \"Initiative\",\n            \"subtask\": false,\n            \"avatarId\": 10306\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10000\",\n            \"id\": \"10000\",\n            \"description\": \"Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.\",\n            \"iconUrl\": \"https://jira.fico.com/images/icons/issuetypes/epic.svg\",\n            \"name\": \"Epic\",\n            \"subtask\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10001\",\n            \"id\": \"10001\",\n            \"description\": \"Created by Jira Software - do not edit or delete. Issue type for a user story.\",\n            \"iconUrl\": \"https://jira.fico.com/images/icons/issuetypes/story.svg\",\n            \"name\": \"Story\",\n            \"subtask\": false\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10102\",\n            \"id\": \"10102\",\n            \"description\": \"A problem that impairs or prevents the function of the software.\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype\",\n            \"name\": \"Defect\",\n            \"subtask\": false,\n            \"avatarId\": 10303\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10100\",\n            \"id\": \"10100\",\n            \"description\": \"Whereas, bugs and enhancements define the two types of work that are done within the development of a project, tasks define the supporting work that must be done around that same project. Often managers may have work to assign to a team that does not fall under the following categories: work for existing requirements, implementation of new features, bug fixes, or enhancement fixes. Updating test cases, downloading a necessary version of a .jar file, or creating internal reports are examples of how tasks can be used to benefit the organization.  Tasks follow a much more simplified workflow compared to bugs and enhancements allowing each department to manage their tasks with a minimum amount of restrictions.\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype\",\n            \"name\": \"Task\",\n            \"subtask\": false,\n            \"avatarId\": 10318\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10101\",\n            \"id\": \"10101\",\n            \"description\": \"The sub-task of the issue\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10316&avatarType=issuetype\",\n            \"name\": \"Sub-task\",\n            \"subtask\": true,\n            \"avatarId\": 10316\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/11900\",\n            \"id\": \"11900\",\n            \"description\": \"Used to track a defect as result of a feature enhancement (story)\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10321&avatarType=issuetype\",\n            \"name\": \"Story Defect\",\n            \"subtask\": true,\n            \"avatarId\": 10321\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10700\",\n            \"id\": \"10700\",\n            \"description\": \"Analysis or discovery work to determine feature scope, uncover technical unknowns, and provide accurate estimates.\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10322&avatarType=issuetype\",\n            \"name\": \"Spike\",\n            \"subtask\": false,\n            \"avatarId\": 10322\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/12800\",\n            \"id\": \"12800\",\n            \"description\": \"\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype\",\n            \"name\": \"Security Defect\",\n            \"subtask\": false,\n            \"avatarId\": 10303\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/issuetype/10900\",\n            \"id\": \"10900\",\n            \"description\": \"Identifies a project risk\",\n            \"iconUrl\": \"https://jira.fico.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype\",\n            \"name\": \"Risk\",\n            \"subtask\": false,\n            \"avatarId\": 10304\n        }\n    ],\n    \"assigneeType\": \"UNASSIGNED\",\n    \"versions\": [\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/17538\",\n            \"id\": \"17538\",\n            \"description\": \"CHG0390632; CHG0388295\",\n            \"name\": \"Cloud Custodian deployment 2020-02-17\",\n            \"archived\": false,\n            \"released\": true,\n            \"releaseDate\": \"2020-02-17\",\n            \"userReleaseDate\": \"17/Feb/20\",\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/17777\",\n            \"id\": \"17777\",\n            \"name\": \"Aqua Console\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/17778\",\n            \"id\": \"17778\",\n            \"name\": \"Aqua Enforcers\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/17804\",\n            \"id\": \"17804\",\n            \"name\": \"Cloud Custodian May 2020\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/25349\",\n            \"id\": \"25349\",\n            \"description\": \"issues from stale release.\",\n            \"name\": \"old\",\n            \"archived\": false,\n            \"released\": true,\n            \"releaseDate\": \"2022-04-19\",\n            \"userReleaseDate\": \"19/Apr/22\",\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29695\",\n            \"id\": \"29695\",\n            \"name\": \"AW4.4.1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29748\",\n            \"id\": \"29748\",\n            \"name\": \"MVP1 Release 1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29756\",\n            \"id\": \"29756\",\n            \"name\": \"FFM 7 RHEL\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29757\",\n            \"id\": \"29757\",\n            \"name\": \"IRE 5.4.1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30004\",\n            \"id\": \"30004\",\n            \"name\": \"23.3\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29904\",\n            \"id\": \"29904\",\n            \"name\": \"2023.3.0.0-RELEASE\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29916\",\n            \"id\": \"29916\",\n            \"name\": \"x.x\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29918\",\n            \"id\": \"29918\",\n            \"name\": \"3.11.1a\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29919\",\n            \"id\": \"29919\",\n            \"name\": \"3.12a\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29952\",\n            \"id\": \"29952\",\n            \"name\": \"FAWB 4.1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29965\",\n            \"id\": \"29965\",\n            \"name\": \"v9.0.0\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/29974\",\n            \"id\": \"29974\",\n            \"name\": \"4.0\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30121\",\n            \"id\": \"30121\",\n            \"name\": \"2.4.7\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30129\",\n            \"id\": \"30129\",\n            \"name\": \"4.5.0\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30131\",\n            \"id\": \"30131\",\n            \"name\": \"v0.2.7\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30322\",\n            \"id\": \"30322\",\n            \"name\": \"v2023.3.\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30327\",\n            \"id\": \"30327\",\n            \"name\": \"4.11.2\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30427\",\n            \"id\": \"30427\",\n            \"name\": \"4.9.26.12\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30432\",\n            \"id\": \"30432\",\n            \"name\": \"v0.2.8\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30369\",\n            \"id\": \"30369\",\n            \"name\": \"3.28\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30449\",\n            \"id\": \"30449\",\n            \"name\": \"v1.8.7\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30526\",\n            \"id\": \"30526\",\n            \"name\": \"2023.2.1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30571\",\n            \"id\": \"30571\",\n            \"name\": \"2023.4\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30576\",\n            \"id\": \"30576\",\n            \"name\": \"v3.28\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30721\",\n            \"id\": \"30721\",\n            \"name\": \"vx.x\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/30918\",\n            \"id\": \"30918\",\n            \"name\": \"2023.4.0\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31000\",\n            \"id\": \"31000\",\n            \"name\": \"v3.28.1a\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31119\",\n            \"id\": \"31119\",\n            \"name\": \"DMP_3.28.1a\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31132\",\n            \"id\": \"31132\",\n            \"name\": \"v2023.5\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31068\",\n            \"id\": \"31068\",\n            \"name\": \"v3.8.0.1\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31075\",\n            \"id\": \"31075\",\n            \"name\": \"vIAM_0.2.12\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/31300\",\n            \"id\": \"31300\",\n            \"name\": \"v3.8.5\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        },\n        {\n            \"self\": \"https://jira.fico.com/rest/api/2/version/32329\",\n            \"id\": \"32329\",\n            \"name\": \"vIAM_1.0.0\",\n            \"archived\": false,\n            \"released\": false,\n            \"projectId\": 14014\n        }\n    ],\n    \"name\": \"CS: Product Security\",\n    \"roles\": {\n        \"External Admins\": \"https://jira.fico.com/rest/api/2/project/14014/role/10600\",\n        \"Legal and Compliance\": \"https://jira.fico.com/rest/api/2/project/14014/role/11005\",\n        \"Scrum Coaches\": \"https://jira.fico.com/rest/api/2/project/14014/role/11500\",\n        \"Developers\": \"https://jira.fico.com/rest/api/2/project/14014/role/11600\",\n        \"Analytic Product Manager\": \"https://jira.fico.com/rest/api/2/project/14014/role/11003\",\n        \"Administrators\": \"https://jira.fico.com/rest/api/2/project/14014/role/10002\",\n        \"Software Product Manager\": \"https://jira.fico.com/rest/api/2/project/14014/role/11004\",\n        \"External Users\": \"https://jira.fico.com/rest/api/2/project/14014/role/10300\",\n        \"Viewers\": \"https://jira.fico.com/rest/api/2/project/14014/role/10200\",\n        \"Users\": \"https://jira.fico.com/rest/api/2/project/14014/role/10101\",\n        \"Notifications\": \"https://jira.fico.com/rest/api/2/project/14014/role/10900\"\n    },\n    \"avatarUrls\": {\n        \"48x48\": \"https://jira.fico.com/secure/projectavatar?pid=14014&avatarId=14609\",\n        \"24x24\": \"https://jira.fico.com/secure/projectavatar?size=small&pid=14014&avatarId=14609\",\n        \"16x16\": \"https://jira.fico.com/secure/projectavatar?size=xsmall&pid=14014&avatarId=14609\",\n        \"32x32\": \"https://jira.fico.com/secure/projectavatar?size=medium&pid=14014&avatarId=14609\"\n    },\n    \"projectCategory\": {\n        \"self\": \"https://jira.fico.com/rest/api/2/projectCategory/10002\",\n        \"id\": \"10002\",\n        \"name\": \"Cyber Security\",\n        \"description\": \"\"\n    },\n    \"projectTypeKey\": \"software\",\n    \"archived\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
