@@ -1,0 +1,8 @@
+{
+  "name": "vulnerable-php-app",
+  "description": "A vulnerable PHP application",
+  "require": {
+    "symfony/symfony": "2.3.0",  // Vulnerable version of Symfony (CVE-2014-0291)
+    "monolog/monolog": "1.0.0"    // Older version of Monolog (CVE-2015-2311)
+  }
+}
